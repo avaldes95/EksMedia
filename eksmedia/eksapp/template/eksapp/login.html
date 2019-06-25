@@ -1,0 +1,30 @@
+{% extends "eksapp/base.html" %}
+
+{% block body_block %}
+<div class="container">
+  <div class="jumbotron">
+    <h1>Please Login</h1>
+
+      <form method="post" action="{% url 'eksapp:user_login' %}">
+        {% csrf_token %}
+        {# A more "HTML" way of creating the login form#}
+        <p>
+          <label for="username">Username:</label>
+          <input type="text" name="username" placeholder="Username">
+        </p>
+        <p>
+          <label for="password">Password:</label>
+          <input type="password" name="password" placeholder="Password">
+        </p>
+
+        <input type="submit" name="" value="Login">
+
+      </form>
+
+    <p>Don't have an account?
+    <br><a class="btn btn-link" style="text-decoration:underline; color: black;"
+      href="{% url 'eksapp:register' %}" role="button">Register Here</a></p>
+
+  </div>
+</div>
+{% endblock %}
